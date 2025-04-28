@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Outro Exemplo de Seleção</title>
+  <style>
+    .bloco {
+      width: 150px;
+      height: 80px;
+      border: 1px solid rgb(22, 5, 255);
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  
+  <h2 id="subtitulo">Subtítulo da Página</h2>
+
+
+  <p class="mensagem">Mensagem original</p>
+
+ 
+  <div class="bloco">Bloco de exemplo</div>
+
+  <script>
+  
+    const subtitulo = document.getElementById("subtitulo");
+    console.log("Subtítulo:", subtitulo.innerText);
+
+    const mensagem = document.querySelector(".mensagem");
+    mensagem.innerText = "Mensagem modificada com sucesso!";
+
+    const bloco = document.querySelector("div");
+    bloco.style.backgroundColor = "#00CED1"; 
+    bloco.style.color = "#fff";
+  </script>
+
+</body>
+</html>

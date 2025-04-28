@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Projetos Interativos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        li.riscado {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        #paragrafos p {
+            margin: 5px 0;
+        }
+
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <h2>Lista de Tarefas</h2>
+    <input type="text" id="inputTarefa" placeholder="Digite uma tarefa">
+    <button id="btnAdicionar">Adicionar</button>
+    <ul id="listaTarefas"></ul>
+
+    <hr>
+
+
+    <h2>Parágrafos para Remover</h2>
+    <div id="paragrafos">
+        <p>Parágrafo 1</p>
+        <p>Parágrafo 2</p>
+        <p>Parágrafo 3</p>
+        <p>Parágrafo 4</p>
+        <p>Parágrafo 5</p>
+    </div>
+    <button id="btnRemoverParagrafo">Remover Último Parágrafo</button>
+
+    <hr>
+
+
+    <h2>Escolha o Tema</h2>
+    <button id="btnClaro">Tema Claro</button>
+    <button id="btnEscuro">Tema Escuro</button>
+
+    <script>
+        
+        const btnAdicionar = document.getElementById('btnAdicionar');
+        const inputTarefa = document.getElementById('inputTarefa');
+        const listaTarefas = document.getElementById('listaTarefas');
+
+        btnAdicionar.addEventListener('click', function() {
+            const tarefa = inputTarefa.value.trim();
+            if (tarefa !== '') {
+                const li = document.createElement('li');
+                li.textContent = tarefa;
+                li.addEventListener('click', function() {
+                    li.classList.toggle('riscado');
+                });
+                listaTarefas.appendChild(li);
+                inputTarefa.value = '';
+                inputTarefa.focus();
+            }
+        });
+
+     
+        const btnRemoverParagrafo = document.getElementById('btnRemoverParagrafo');
+        const divParagrafos = document.getElementById('paragrafos');
+
+        btnRemoverParagrafo.addEventListener('click', function() {
+            const paragrafos = divParagrafos.getElementsByTagName('p');
+            if (paragrafos.length > 0) {
+                divParagrafos.removeChild(paragrafos[paragrafos.length - 1]);
+            }
+        });
+
+    
+        const btnClaro = document.getElementById('btnClaro');
+        const btnEscuro = document.getElementById('btnEscuro');
+
+        btnClaro.addEventListener('click', () => {
+            document.body.style.backgroundColor = 'white';
+            document.body.style.color = 'black';
+        });
+
+        btnEscuro.addEventListener('click', () => {
+            document.body.style.backgroundColor = 'black';
+            document.body.style.color = 'white';
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Alterando Conteúdo e Estilos</title>
+    <style>
+        #texto {
+            font-size: 14px;
+            color: black;
+            background: none;
+        }
+    </style>
+</head>
+<body>
+
+  
+    <button onclick="mudarTexto(this)">Clique aqui</button>
+
+    <br><br>
+
+    
+    <div id="caixa">Conteúdo original</div>
+    <button onclick="trocarConteudo()">Trocar Conteúdo</button>
+
+    <br><br>
+
+    <p id="texto">Parágrafo de teste.</p>
+    <button onclick="alterarEstilo()">Alterar Estilo</button>
+
+    <script>
+        
+        function mudarTexto(botao) {
+            botao.innerText = "Clicado!";
+        }
+
+      
+        function trocarConteudo() {
+            document.getElementById('caixa').innerHTML = '<strong>Conteúdo em negrito</strong>';
+        }
+
+        function alterarEstilo() {
+            const p = document.getElementById('texto');
+            p.style.color = 'green';
+            p.style.fontSize = '22px';
+            p.style.backgroundColor = 'yellow';
+        }
+    </script>
+
+</body>
+</html>
+

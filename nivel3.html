@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Classes e Eventos</title>
+    <style>
+       
+        .estiloDestacado {
+            border: 2px solid blue;
+            background-color: lightblue;
+            padding: 10px;
+            border-radius: 5px;
+            color: darkblue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+  
+    <p id="paragrafoEstilizado">Este parágrafo receberá um novo estilo.</p>
+    <button id="btnAdicionar">Adicionar Estilo</button>
+    <button id="btnRemover">Remover Estilo</button>
+
+    <br><br>
+
+    <form id="formularioSaudacao">
+        <input type="text" id="nome" placeholder="Digite seu nome" required>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <p id="mensagem"></p>
+
+    <script>
+     
+        const paragrafo = document.getElementById('paragrafoEstilizado');
+        const btnAdicionar = document.getElementById('btnAdicionar');
+        btnAdicionar.addEventListener('click', function() {
+            paragrafo.classList.add('estiloDestacado');
+        });
+
+       
+        const btnRemover = document.getElementById('btnRemover');
+        btnRemover.addEventListener('click', function() {
+            paragrafo.classList.remove('estiloDestacado');
+        });
+
+       
+        const formulario = document.getElementById('formularioSaudacao');
+        const mensagem = document.getElementById('mensagem');
+
+        formulario.addEventListener('submit', function(evento) {
+            evento.preventDefault();
+            const nome = document.getElementById('nome').value;
+            mensagem.textContent = `Olá, ${nome}!`;
+            formulario.reset(); 
+        });
+    </script>
+
+</body>
+</html>
